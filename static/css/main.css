@@ -1,3 +1,40 @@
+:root {
+    color-scheme: light dark; /* support color scheme */
+    --base03:    #002b36;
+    --base02:    #073642;
+    --base01:    #586e75;
+    --base00:    #657b83;
+    --base0:     #839496;
+    --base1:     #93a1a1;
+    --base2:     #eee8d5;
+    --base3:     #fdf6e3;
+    --yellow:    #b58900;
+    --orange:    #cb4b16;
+    --red:       #dc322f;
+    --magenta:   #d33682;
+    --violet:    #6c71c4;
+    --blue:      #268bd2;
+    --cyan:      #2aa198;
+    --green:     #859900;
+    --transparent: rgba(255,255,255,0);
+
+    /* --main-background: #00151b; /* 0.5 darker than #002b36; */
+    --main-background: var(--base03); /* 0.5 darker than #002b36; */
+    --main-foreground: var(--base1);
+    --second-foreground: var(--base0);
+    --reveal-background: var(--base02);
+    --soft-foreground: var(--base01);
+    --border-color: var(--base02);
+    --todo-txt: #000;
+    --color-h1: var(--cyan);
+    --color-h2: var(--green);
+    --color-h3: var(--yellow);
+    --color-h4: var(--orange);
+    --color-h5: var(--red);
+    --color-h6: var(--magenta);
+    --color-link: var(--magenta);
+}
+
 html {
     height: 102%;
 }
@@ -5,11 +42,31 @@ html {
 body {
     height: 102%;
     word-wrap: break-word;
+    background-color: var(--main-background);
+    color: var(--main-foreground);
 }
+a {
+    color: var(--blue);
+}
+a:visited { color: var(--violet);}
 
+a:hover, a:active, .top_menu a:hover {color: var(--magenta);}
+.bg-white { background-color: var(--main-background); }
+input, textarea {
+    background-color: var(--reveal-background);
+    color: var(--main-foreground);
+    border: solid 1px var(--border-color);
+}
+.gold { color: var(--yellow); }
+.hover-orange:hover { color: var(--orange); }
+button, .button {color: white;}
+.bg-white input:focus, .bg-white textarea:focus {
+    border: solid 1px var(--blue);
+    box-shadow: none;
+}
 button {
     background:none;
-    border:none; 
+    border:none;
     padding:0;
     cursor:pointer;
 }
@@ -23,7 +80,7 @@ button:focus {
     display: none !important
 }
 input::placeholder {
-   color: lightgray 
+    color: var(--soft-foreground);
 }
 .queryInput {
     width: 128px;
@@ -31,7 +88,7 @@ input::placeholder {
     border-radius: 3px;
     border-style: solid;
     border-width: 1px;
-    border-color: gray;
+    border-color: var(--border-color);
     height: 22px;
     line-height: 22px;
     transition: width .1s ease-in-out
@@ -42,9 +99,9 @@ input::placeholder {
 }
 .submitting .queryInput,
 .queryInput.search-active {
-    border-color: #990;
+    border-color: var(--border-color);
     border-width: 2px;
-    background-color: #FF9;
+    background-color: var(--reveal-background);
     width: 175px;
 }
 .queryIcon {
@@ -65,10 +122,10 @@ label {
   height: 17px;
   top: 2px;
   position: relative;
-  right: 2px; 
+  right: 2px;
 }
 .close-x {
-  stroke: gray;
+  stroke: var(--second-foreground);
   fill: transparent;
   stroke-linecap: round;
   stroke-width: 3;
@@ -88,54 +145,54 @@ label {
     top:-2px;
 }
 
-.star button { 
+.star button {
     transition: color .1s;
 }
-.star.selected button { 
-    color:#22a; 
+.star.selected button {
+    color:var(--magenta);
 }
 .edit_links button {
     transition: color .1s ease-in;
 }
 
 .tag {
-    color:#a51;
+    color:var(--cyan);
     line-height:190%;
 }
 
-.private { background:#ddd;border:1px solid #d1d1d1; }
-.unread { color:#b41 }
-.mark_read {color: #a81;}
-.flash { color:green;background:#efe }
+.private { background:var(--reveal-background);border:1px solid var(--border-color); }
+.unread { color:var(--yellow); }
+.mark_read {color: var(--yellow);}
+.flash { color:var(--green); }
 
-.top_menu { 
+.top_menu {
     margin-top:6px;
 }
 .top_menu a {
-    color: blue;
+    color: var(--blue);
 }
-.bookmarklet { 
+.bookmarklet {
     padding:1px 2px 0px 2px;
 }
 
-.alert { 
-    background:#ced;
-    border:1px solid #acc; 
+.alert {
+    background:var(--reveal-background);
+    border:1px solid var(--border-color);
 }
 
-.edit_bookmark_form {color:#888;}
-.edit_bookmark_form input {border:1px solid #ddd;}
-.edit_bookmark_form textarea {border:1px solid #ddd;}
+.edit_bookmark_form {color:var(--second-foreground);}
+.edit_bookmark_form input {border:1px solid var(--border-color);}
+.edit_bookmark_form textarea {border:1px solid var(--border-color);}
 
 .nav-active {
-    background:#ff8;
-    color:blue;
+    background-color: var(--reveal-background);
+    color: var(--yellow);
 }
 
 /* mobile device */
 @media only screen and (max-width : 750px) {
-    body { 
-        -webkit-text-size-adjust: none; 
+    body {
+        -webkit-text-size-adjust: none;
     }
     .display {
         float: none
@@ -180,10 +237,10 @@ label {
   margin-bottom: 0;
 }
 .display .description > div ol {
-  padding-left: 23px; 
+  padding-left: 23px;
 }
 .display .description > div ul {
-  padding-left: 23px; 
+  padding-left: 23px;
 }
 code, pre {
     font-size:13px;
@@ -192,3 +249,256 @@ code, pre {
 #content:not([view-rendered]) .view-delay {
     display: none !important
 }
+/* CSS to be used for HTML Org-mode export
+   Author: Yann Esposito
+*/
+
+:root {
+    --font-size: 12px;
+    --line-height: 14px;
+}
+/* Fonts */
+body {
+    font-family: Menlo, Monaco, monospace;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+code {
+    font-family: Menlo, Monaco, monospace;
+}
+pre, pre code {
+    font-family: Menlo, Monaco, monospace;
+}
+.todo, .done {
+    font-family: Menlo, Monaco, monospace;
+}
+/* Layout */
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+}
+h1, h2, h3, h4, h5, h6, pre, code, blockquote, ol, ul, ol ol, ul ul, ul ol, ol
+ul, li, p, section, header, footer {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, pre, code, blockquote, p, ul, ol, section, header,
+figure {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+figure {
+    margin: 1em 0px;
+}
+figure > img {
+    margin: 0px;
+}
+li {
+    position: relative;
+    display: block;
+    padding-left: 1.5em;
+}
+ul > li:before {
+    content: "– ";
+    opacity: 0.5;
+    float: left;
+    position: relative;
+    left: -1.5em;
+    text-align: right;
+    width: 0;
+}
+ol {
+    counter-reset: ol;
+}
+ol > li:before {
+    content: counter(ol) ". ";
+    counter-increment: ol;
+    float: left;
+    text-align: right;
+    position: relative;
+    left: -1.5em;
+    width: 0;
+}
+ol > li:nth-child(n+10) {
+    padding-left:28px;
+}
+ol > li:nth-child(n+10):before {
+    left: -28px;
+}
+img {
+    max-width: 100%;
+    max-height: 800px;
+    margin: 1em auto;
+}
+p > img, li > img {
+    max-height: 1em;
+    margin: 0;
+    vertical-align: middle;
+}
+table {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+    border: solid 1px;
+    display: block;
+    overflow: scroll;
+}
+td, th {
+    height: 1em;
+    padding: 0 10px;
+    text-align: left;
+    vertical-align: middle;
+    border-right: solid 1px;
+    border-left: solid 1px;
+}
+
+/* Markdown tricks */
+h1 {
+    font-size: 1em;
+}
+h2 {
+    font-size: 1em;
+}
+h3 {
+    font-size: 1em;
+}
+h4 {
+    font-size: 1em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+    font-size: 1em;
+}
+h1::before {
+    content: "# ";
+}
+h2::before {
+    content: "## ";
+}
+h3::before {
+    content: "### ";
+}
+h4::before {
+    content: "#### ";
+}
+h5::before {
+    content: "##### ";
+}
+h6::before {
+    content: "###### ";
+}
+hr {
+    position: relative;
+    height: 1em;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    border: 0;
+}
+hr:after {
+    content: "----------------------------------------------------------------------------------------------------";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    word-wrap: break-word;
+}
+pre { max-width: 100%; overflow: scroll; }
+pre::after,pre::before {
+    content: "~~~~~~~~~";
+    display: block; }
+pre::before {
+    content: "~~~~~~~~~ " attr(class);
+}
+pre code {
+    background: none;
+}
+blockquote {
+    margin-left: 0;
+    position: relative;
+    padding-left: 17px;
+    padding-left: 2ch;
+    overflow: hidden;
+}
+.notes *:first-child,
+blockquote *:first-child {
+    margin-top: 0;
+}
+.notes *:last-child,
+blockquote *:last-child {
+    margin-bottom: 0;
+}
+blockquote:after {
+    content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
+    white-space: pre;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+navigation {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+}
+navigation > a {
+    margin-right: 10px;
+}
+
+/* org mode ids and classes */
+.figure {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+#content,.content {
+    margin: 0 1em;
+    padding: 1px;
+}
+#content:first-child {
+    margin-top: 0;
+}
+.timestamp-wrapper {
+    font-size: 12px;
+}
+.todo, .done {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 1px 1ex;
+}
+.article-date {
+    font-size: 0.8em;
+    font-style: italic;
+    float: right;
+}
+.footpara {
+    display: inline;
+}
+.footdef > sup {
+    vertical-align: middle;
+}
+.footdef > sup::after {
+    content: ": ";
+}
+.notes {
+    padding: 5px 10px;
+}
+.notes::before {
+    content: "☞";
+    float: left;
+    display: inline-block;
+    width: 1.5em;
+}
+.underline {
+    text-decoration: underline;
+}
+
+table, tr, td { border-color: transparent; }
+.dark-gray { color: var(--second-foreground);}
+.mid-gray { color: var(--second-foreground);}
